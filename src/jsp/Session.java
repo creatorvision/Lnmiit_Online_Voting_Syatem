@@ -1,7 +1,7 @@
 package jsp;
 
 public class Session {
-	private static String lastSessionId = "first";
+	private static String lastSessionId = null;
 	
 	public static boolean isSameSession(String sessionID){
 		if (lastSessionId == null) {
@@ -24,3 +24,5 @@ public class Session {
 		lastSessionId = value;
 	}
 	}
+
+

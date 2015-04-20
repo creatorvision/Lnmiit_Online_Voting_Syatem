@@ -42,6 +42,7 @@
 			loginCookie.setMaxAge(0);
 			response.addCookie(loginCookie);
 		} 
+
 		response.sendRedirect("index.jsp");
 	%>
 

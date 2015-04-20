@@ -2,8 +2,10 @@
 <%@ include file="noCache.jsp" %>
 <!DOCTYPE HTML>
 <!--
+
 AUTHOR                      : LNMIIT_ONLINE_VOTING_SYSTEM_DEVELOPMENT_TEAM_GROUP-26 SEPM2015
 DATE OF LAST UPDATE         : 17 APRIL 2015 
+
 -->
 
 
@@ -41,6 +43,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					System.out.println("JSESSIONID=" + sessionID);
 					break;
 				}
+
 			}
 		}
 		
@@ -100,7 +103,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 						<h3>Welcome <%= request.getSession(false).getAttribute("user") %></h3>
 					</header>
 					<br/><br/>
-					<p class="ceo_quote">"Elections belong to the people. It's their decision. <br/>If they decide to turn their back on the fire <br/>and burn their behinds,then they will just<br/> have to sit on their blisters."€<br/><br/></p>
+					<p class="ceo_quote">"Elections belong to the people. It's their decision. <br/>If they decide to turn their back on the fire <br/>and burn their behinds,then they will just<br/> have to sit on their blisters."<br/><br/></p>
 					<p class="ceo_quote">-Abraham Lincoln</p>		
 	           
 				</div>

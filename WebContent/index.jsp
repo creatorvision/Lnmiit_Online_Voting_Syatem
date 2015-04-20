@@ -1,3 +1,4 @@
+<%@ include file="noCache.jsp" %>
 <!DOCTYPE HTML>
 <!--
 
@@ -19,6 +20,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/back.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -32,13 +34,32 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 
 		<!-- Header -->
 			<header id="header" class="alt">
-			<h1 id="logo"><a href="http://www.lnmiit.ac.in"><img src="images/LNMIIT_logo.png" width="200px" height="100px"></a></h1>		
-			<nav id="nav">
+			<h1 id="logo"><a href="http://www.lnmiit.ac.in"><img src="images/LNMIIT_logo.png" width="200px" height="100px"></a></h1>		<nav id="nav">
 					<ul>
-						<li class="current"><a href="#">Welcome</a></li>
+						<li class="current"><a href="index.jsp">Welcome</a></li>
+						<!--<li class="submenu">
+							<a href="">Layouts</a>
+							<ul>
+								<li><a href="left-sidebar.html">Left Sidebar</a></li>
+								<li><a href="right-sidebar.html">Right Sidebar</a></li>
+								<li><a href="no-sidebar.html">No Sidebar</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li class="submenu">
+									<a href="">Submenu</a>
+									<ul>
+										<li><a href="#">Dolore Sed</a></li>
+										<li><a href="#">Consequat</a></li>
+										<li><a href="#">Lorem Magna</a></li>
+										<li><a href="#">Sed Magna</a></li>
+										<li><a href="#">Ipsum Nisl</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#" class="button special">Sign Up</a></li>-->
 						<li><a href="">Election Rules</a></li>
 						<li><a href="">Help Page</a></li>
-						<li><a href="contact.jsp">Contact Us</a></li>
+						<li><a href="">Contact Us</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -250,7 +271,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 				</ul>
 
 				<ul class="copyright">
-					<li>&copy; SEPM-GROUP 26</li>
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
 
 			</footer>

@@ -1,3 +1,5 @@
+<%@page import="jsp.*"%>
+<%@ include file="noCache.jsp" %>
 <!DOCTYPE HTML>
 <!--
 
@@ -5,6 +7,8 @@ AUTHOR                      : LNMIIT_ONLINE_VOTING_SYSTEM_DEVELOPMENT_TEAM_GROUP
 DATE OF LAST UPDATE         : 17 APRIL 2015 
 
 -->
+
+
 <html>
 	<head>
 		<title>CEO_TERMINAL: LNMIIT ONLINE VOTING SYSTEM</title>
@@ -29,12 +33,53 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	</head>
 	<body class="index">
+<%
+		String sessionID = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cooki : cookies) {
+				if (cooki.getName().equals("JSESSIONID")) {
+					sessionID = cooki.getValue();
+					System.out.println("JSESSIONID=" + sessionID);
+					break;
+				}
+
+			}
+		}
+		
+		if(!Session.isSameSession(sessionID)){
+			response.sendRedirect("index.jsp");
+			System.out.println("different session");
+			
+		}
+		
+	%>
 
 		<!-- Header -->
 			<header id="header" class="alt">
 			<h1 id="logo"><a href="http://www.lnmiit.ac.in"><img src="images/LNMIIT_logo.png" width="200px" height="100px"></a></h1>		<nav id="nav">
 					<ul>
 						<li><a href="index.jsp">Welcome</a></li>
+						<!--<li class="submenu">
+							<a href="">Layouts</a>
+							<ul>
+								<li><a href="left-sidebar.html">Left Sidebar</a></li>
+								<li><a href="right-sidebar.html">Right Sidebar</a></li>
+								<li><a href="no-sidebar.html">No Sidebar</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li class="submenu">
+									<a href="">Submenu</a>
+									<ul>
+										<li><a href="#">Dolore Sed</a></li>
+										<li><a href="#">Consequat</a></li>
+										<li><a href="#">Lorem Magna</a></li>
+										<li><a href="#">Sed Magna</a></li>
+										<li><a href="#">Ipsum Nisl</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#" class="button special">Sign Up</a></li>-->
 						<li><a href="">Election Rules</a></li>
 						<li><a href="">Help Page</a></li>
 						<li><a href="">Contact Us</a></li>
