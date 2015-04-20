@@ -33,6 +33,7 @@
 		session = request.getSession(false);
 		System.out.println("User=" + session.getAttribute("user"));
 		if (session != null) {
+			System.out.println("loginindex="+key);
 			Session.setlastSessionId(null, key);
 			System.out.println("session invalidated");
 			session.invalidate();
