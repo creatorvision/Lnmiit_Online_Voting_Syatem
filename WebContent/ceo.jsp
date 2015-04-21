@@ -23,12 +23,12 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 <script src="js/skel.min.js"></script>
 <script src="js/skel-layers.min.js"></script>
 <script src="js/init.js"></script>
-<noscript>
-	<link rel="stylesheet" href="css/skel.css" />
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/style-wide.css" />
-	<link rel="stylesheet" href="css/style-noscript.css" />
-</noscript>
+
+<link rel="stylesheet" href="css/skel.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style-wide.css" />
+<link rel="stylesheet" href="css/style-noscript.css" />
+
 <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 </head>
@@ -268,8 +268,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		</ul>
 
 		<ul class="copyright">
-			<li>&copy; Untitled</li>
-			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			<li>&copy; SEPM-GROUP 26</li>
 		</ul>
 
 	</footer>

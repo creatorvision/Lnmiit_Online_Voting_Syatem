@@ -7,7 +7,7 @@ public class MySQL {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			return DriverManager.getConnection("jdbc:mysql://localhost/voting",
-					"root", "root");
+					"root", "123456");
 		} catch (Exception e) {
 			return null;
 		}

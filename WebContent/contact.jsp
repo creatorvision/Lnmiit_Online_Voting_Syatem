@@ -1,8 +1,6 @@
 <!--
-
 AUTHOR                   : LNMIIT_ONLINE_VOTING_SYSTEM_TEAM
 LAST MODIFIED DATE       : 17-APRIL-2015
-
 -->
 
 <!DOCTYPE HTML>
@@ -20,43 +18,40 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-wide.css" />
-			<link rel="stylesheet" href="css/style-noscript.css" />
-		</noscript>
+		
+		<link rel="stylesheet" href="css/skel.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-wide.css" />
+		<link rel="stylesheet" href="css/style-noscript.css" />
+		
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style type="text/css">
+			#nav ul li {
+				color: black;
+			}
+			.contact{
+				
+				background-color: #000;
+				background: url("../images/LNMIIT-contact.jpg");
+				background-position:center;
+				background-repeat: no-repeat;
+				background-size: 75em, 60em, auto, cover;
+			}
+		</style>
+
 	</head>
 	<body class="contact">
 
 		<!-- Header -->
-			<header id="header" class="skel-layers-fixed">
-				<h1 id="logo"><a href="index.html">Twenty <span>by HTML5 UP</span></a></h1>
-				<nav id="nav">
+			<header id="header" class="alt">
+			<h1 id="logo"><a href="http://www.lnmiit.ac.in"><img src="images/LNMIIT_logo.png" width="200px" height="100px"></a></h1>		
+			<nav id="nav">
 					<ul>
-						<li class="current"><a href="index.html">Welcome</a></li>
-						<li class="submenu">
-							<a href="">Layouts</a>
-							<ul>
-								<li><a href="left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="no-sidebar.html">No Sidebar</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li class="submenu">
-									<a href="">Submenu</a>
-									<ul>
-										<li><a href="#">Dolore Sed</a></li>
-										<li><a href="#">Consequat</a></li>
-										<li><a href="#">Lorem Magna</a></li>
-										<li><a href="#">Sed Magna</a></li>
-										<li><a href="#">Ipsum Nisl</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li><a href="#" class="button special">Sign Up</a></li>
+						<li><a href="index.jsp">Welcome</a></li>
+						<li><a href="">Election Rules</a></li>
+						<li><a href="">Help Page</a></li>
+						<li class="current"><a href="#">Contact Us</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -67,7 +62,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 				<header class="special container">
 					<span class="icon fa-envelope"></span>
 					<h2>Get In Touch</h2>
-					<p>Use the form below to give /dev/null a piece of your mind.</p>
+					<p>We would love to hear from you ! </p>
 				</header>
 
 				<!-- One -->
@@ -120,7 +115,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 				</ul>
 
 				<ul class="copyright">
-					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; SEPM-GROUP 26</li>
 				</ul>
 
 			</footer>
