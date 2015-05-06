@@ -6,8 +6,7 @@ public class MySQL {
 	public static Connection connect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			return DriverManager.getConnection("jdbc:mysql://localhost/voting",
-					"root", "123456");
+			return DriverManager.getConnection("jdbc:mysql://localhost/voting","root", "123456");
 		} catch (Exception e) {
 			return null;
 		}

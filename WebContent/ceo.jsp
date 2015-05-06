@@ -1,4 +1,4 @@
-<%@page import="jsp.*"%>
+<%@page import="jsp.*,java.util.*"%>
 <%@ include file="noCache.jsp"%>
 <!DOCTYPE HTML>
 <!--
@@ -24,16 +24,20 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 <script src="js/skel-layers.min.js"></script>
 <script src="js/init.js"></script>
 
-<link rel="stylesheet" href="css/skel.css" />
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/style-wide.css" />
-<link rel="stylesheet" href="css/style-noscript.css" />
+	<link rel="stylesheet" href="css/skel.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/style-wide.css" />
+	<link rel="stylesheet" href="css/style-noscript.css" />
 
 <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 </head>
 <body class="index">
-	<%
+<% ArrayList<String> EventsAdded = new ArrayList<String>();
+M_ElectionEvent EE = new M_ElectionEvent();
+EventsAdded = EE.getEE();
+session.setAttribute("EventsAdded",EventsAdded);
+	
 		String sessionID = null;
 		int loginindex = 0;
 		Cookie[] cookies = request.getCookies();
@@ -94,7 +98,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 						<li><a href="#" class="button special">Sign Up</a></li>-->
 				<li><a href="">Election Rules</a></li>
 				<li><a href="">Help Page</a></li>
-				<li><a href="">Contact Us</a></li>
+				<li><a href="contact.jsp">Contact Us</a></li>
 				<li><a href="logout.jsp" class="button special">LOGOUT</a></li>
 			</ul>
 		</nav>
@@ -150,7 +154,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">CREATE ELECTION EVENT</a>
+								<a href="create_ee.jsp">CREATE ELECTION EVENT</a>
 							</h3>
 						</header>
 						<p></p>
@@ -162,7 +166,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">UPDATE ELECTION EVENT</a>
+								<a href="Update_ee.jsp">UPDATE ELECTION EVENT</a>
 							</h3>
 						</header>
 						<p></p>
@@ -176,7 +180,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">DELETE ELECTION EVENT</a>
+								<a href="delete_ee.jsp">DELETE ELECTION EVENT</a>
 							</h3>
 						</header>
 						<p></p>
@@ -188,7 +192,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">ABORT ELECTION RESULTS</a>
+								<a href="#">ABORT ELECTION EVENT</a>
 							</h3>
 						</header>
 						<p></p>
@@ -268,7 +272,8 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		</ul>
 
 		<ul class="copyright">
-			<li>&copy; SEPM-GROUP 26</li>
+			<li>&copy; Untitled</li>
+			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 		</ul>
 
 	</footer>

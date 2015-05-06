@@ -52,6 +52,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 						<li><a href="">Election Rules</a></li>
 						<li><a href="">Help Page</a></li>
 						<li class="current"><a href="#">Contact Us</a></li>
+						<li><a href="logout.jsp" class="button special">LOGOUT</a></li>
 					</ul>
 				</nav>
 			</header>

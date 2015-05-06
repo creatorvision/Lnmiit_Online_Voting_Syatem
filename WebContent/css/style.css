@@ -179,6 +179,8 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 	input[type="text"],
 	input[type="password"],
+	input[type="date"],
+	input[type="time"],
 	input[type="email"],
 	textarea {
 		-moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -202,6 +204,8 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 	}
 
 		input[type="text"]:focus,
+		input[type="date"]:focus,
+		input[type="time"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
 		textarea:focus {
@@ -209,6 +213,8 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 		}
 
 	input[type="text"],
+	input[type="date"],
+	input[type="time"],
 	input[type="password"],
 	input[type="email"] {
 		line-height: 1em;

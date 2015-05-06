@@ -22,13 +22,29 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 <script src="js/init.js"></script>
 <script src="js/back.js"></script>
 
-<link rel="stylesheet" href="css/skel.css" />
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/style-wide.css" />
-<link rel="stylesheet" href="css/style-noscript.css" />
+	<link rel="stylesheet" href="css/skel.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/style-wide.css" />
+	<link rel="stylesheet" href="css/style-noscript.css" />
 
 <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+
+<script>
+	function validLogin(){
+		if (document.form.username.value == ""){
+			alert ( "Please enter Login Name." );
+			document.loginform.userName.focus();
+			return false;
+		}
+		if (document.form.password.value == ""){
+			alert ( "Please enter password." );
+			document.userform.password.focus();
+			return false;
+		}
+	}
+</script>
+
 </head>
 <body class="index">
 
@@ -62,13 +78,13 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 			<header>
 				<h3>LNMIIT ONLINE VOTING SYSTEM</h3>
 			</header>
-			<form action="loginp.jsp" method="post">
+			<form name="form" action="loginp.jsp" method="post">
 
 				<input type="text" placeholder="Username" name="username" size="20"
 					value=""><br> <input type="password"
 					placeholder="Password" name="password" size="20" value=""><br>
 				<input type="submit" class="buttons" name="LOG IN" value="LOG IN"
-					id="login_sub">
+					id="login_sub" onclick="validLogin()">
 
 			</form>
 
@@ -305,7 +321,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		</ul>
 
 		<ul class="copyright">
-			<li>&copy; SEPM-GROUP 26</li>
+			<li>&copy; SEPM-Group-26</li>
 		</ul>
 
 	</footer>

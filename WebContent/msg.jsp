@@ -24,10 +24,10 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 <script src="js/skel-layers.min.js"></script>
 <script src="js/init.js"></script>
 
-<link rel="stylesheet" href="css/skel.css" />
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/style-wide.css" />
-<link rel="stylesheet" href="css/style-noscript.css" />
+	<link rel="stylesheet" href="css/skel.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/style-wide.css" />
+	<link rel="stylesheet" href="css/style-noscript.css" />
 
 <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
@@ -72,6 +72,26 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		<nav id="nav">
 			<ul>
 				<li><a href="index.jsp">Welcome</a></li>
+				<!--<li class="submenu">
+							<a href="">Layouts</a>
+							<ul>
+								<li><a href="left-sidebar.html">Left Sidebar</a></li>
+								<li><a href="right-sidebar.html">Right Sidebar</a></li>
+								<li><a href="no-sidebar.html">No Sidebar</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li class="submenu">
+									<a href="">Submenu</a>
+									<ul>
+										<li><a href="#">Dolore Sed</a></li>
+										<li><a href="#">Consequat</a></li>
+										<li><a href="#">Lorem Magna</a></li>
+										<li><a href="#">Sed Magna</a></li>
+										<li><a href="#">Ipsum Nisl</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#" class="button special">Sign Up</a></li>-->
 				<li><a href="">Election Rules</a></li>
 				<li><a href="">Help Page</a></li>
 				<li><a href="">Contact Us</a></li>
@@ -98,7 +118,14 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 			</header>
 			<br />
 			<br />
-			<P></P>
+			<p class="ceo_quote">
+				"Elections belong to the people. It's their decision. <br />If they
+				decide to turn their back on the fire <br />and burn their
+				behinds,then they will just<br /> have to sit on their blisters."<br />
+				<br />
+			</p>
+			<p class="ceo_quote">-Abraham Lincoln</p>
+
 		</div>
 
 	</section>
@@ -110,7 +137,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		<header class="special container"> </header>
 
 
-		<!-- MSG's Operations -->
+		<!-- CEO's Operations -->
 		<section class="wrapper style3 container special">
 
 			<header class="major">
@@ -118,21 +145,94 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					Time to <strong>Act</strong>
 				</h2>
 			</header>
-			
-			<footer class="major">
-				<ul class="buttons">
-					<li><a href="#" class="button">APPLY FOR CANDIDATURE</a></li>
-				</ul>
-			</footer>
+
+			<div class="row">
+				<div class="6u 12u(narrower)">
+
+					<section>
+						<header>
+							<h3>
+								<a href="apply_for_cand.jsp">APPLY FOR CANDIDATURE</a>
+							</h3>
+						</header>
+						<p></p>
+					</section>
+
+				</div>
+				<div class="6u 12u(narrower)">
+
+					<section>
+						<header>
+							<h3>
+								<a href="#">DELETE YOUR APPLICATION</a>
+							</h3>
+						</header>
+						<p></p>
+					</section>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="6u 12u(narrower)">
+
+					<section>
+						<header>
+							<h3>
+								<a href="#">VIEW CANDIDATE PORTFOLIOS</a>
+							</h3>
+						</header>
+						<p></p>
+					</section>
+
+				</div>
+				<div class="6u 12u(narrower)">
+
+					<section>
+						<header>
+							<h3>
+								<a href="#">DELETE YOUR CANDIDATURE</a>
+							</h3>
+						</header>
+						<p></p>
+					</section>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="6u 12u(narrower)">
+
+					<section>
+						<header>
+							<h3>
+								<a href="#">DELETE PORTFOLIO</a>
+							</h3>
+						</header>
+						<p></p>
+					</section>
+
+				</div>
+				<div class="6u 12u(narrower)">
+
+					<section>
+						<header>
+							<h3>
+								<a href="#">UPDATE PORTFOLIO</a>
+							</h3>
+						</header>
+						<p></p>
+					</section>
+
+				</div>
+			</div>
 
 			<footer class="major">
 				<ul class="buttons">
-					<li><a href="#" class="button">CAST YOUR VOTE</a></li>
+					<li><a href="#" class="button">VOTING</a></li>
 				</ul>
 			</footer>
 
 		</section>
-		<!--END OF MSG's OPERATIONS -->
+		<!--END OF CEO OPERATIONS -->
 
 	</article>
 
@@ -172,7 +272,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		</ul>
 
 		<ul class="copyright">
-			<li>&copy; SEPM-GROUP 26</li>
+			<li>&copy; SEPM-GROUP-26</li>
 		</ul>
 
 	</footer>
