@@ -5,7 +5,7 @@
 LNMIIT ONLINE VOTING SYSTEM  is a web portal for the LNMIIT student to fetch all information regarding the LNMIIT GYMKHANA ELECTIONS and to cast their preferences for the various posts such as president , general secretary science and tech , etc.
 
 
-VERSION : 0.1
+VERSION : 1.0 -Final
 
 
 USAGE OF L.O.V.S_APPLICATION  :
