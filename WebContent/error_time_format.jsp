@@ -1,4 +1,5 @@
 <%@ include file="noCache.jsp"%>
+<%@page import="jsp.*,java.util.*"%>
 <!DOCTYPE HTML>
 <!--
 
@@ -8,7 +9,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 -->
 <html>
 <head>
-<title>LNMIIT ONLINE VOTING SYSTEM</title>
+<title>Error_Time | LNMIIT ONLINE VOTING SYSTEM</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -33,6 +34,39 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 
 </head>
 <body class="index">
+
+<%
+		session.setAttribute("fname", "error_time_format");
+	String sessionID = null;
+	int loginindex = 0;
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+		for (Cookie cooki : cookies) {
+			if (cooki.getName().equals("JSESSIONID")) {
+				sessionID = cooki.getValue();
+				System.out.println("JSESSIONID=" + sessionID);
+				break;
+			}
+
+		}
+		for (Cookie cooki : cookies) {
+			if (cooki.getName().equals("loginindex")) {
+				loginindex = Integer.parseInt(cooki.getValue());
+				System.out.println("loginindex=" + loginindex);
+				break;
+			}
+
+		}
+	}
+
+	if (!Session.isSameSession(sessionID, loginindex)) {
+		response.sendRedirect("index.jsp");
+		System.out.println("different session");
+
+	}
+
+
+	%>
 
 	<!-- Header -->
 	<header id="header" class="alt">
@@ -64,8 +98,8 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 			<header>
 				<h3>LNMIIT ONLINE VOTING SYSTEM</h3>
 			</header>
-			<h1>Error - Invalid Username and Password </h1>
-			<input type="submit" class="buttons" id="myBtn" name="BACK TO HOME" value="BACK TO HOME" onclick="window.location = 'index.jsp';">
+			<h1>Error - Invalid Time Format</h1>
+			<input type="submit" class="buttons" id="myBtn" name="BACK" value="BACK" onclick="window.history.back()">
 		</div>
 
 	</section>

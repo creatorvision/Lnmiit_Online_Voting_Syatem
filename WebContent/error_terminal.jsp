@@ -3,12 +3,12 @@
 <!--
 
 AUTHOR                      : LNMIIT_ONLINE_VOTING_SYSTEM_DEVELOPMENT_TEAM_GROUP-26 SEPM2015
-DATE OF LAST UPDATE         : 17 APRIL 2015 
+DATE OF LAST UPDATE         : 7 May 2015 
 
 -->
 <html>
 <head>
-<title>LNMIIT ONLINE VOTING SYSTEM</title>
+<title>Error-page_Voting Terminal</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -62,10 +62,10 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		<div class="inner">
 
 			<header>
-				<h3>LNMIIT ONLINE VOTING SYSTEM</h3>
+				<h3>VOTING TERMINAL</h3>
 			</header>
 			<h1>Error - Invalid Username and Password </h1>
-			<input type="submit" class="buttons" id="myBtn" name="BACK TO HOME" value="BACK TO HOME" onclick="window.location = 'index.jsp';">
+			<input type="submit" class="buttons" id="myBtn" name="BACK TO VOTING TERMINAL" value="BACK TO VOTING TERMINAL" onclick="window.location = 'Voting_terminal_login.jsp';">
 		</div>
 
 	</section>

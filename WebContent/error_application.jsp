@@ -8,7 +8,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 -->
 <html>
 <head>
-<title>LNMIIT ONLINE VOTING SYSTEM</title>
+<title>Error_page | LNMIIT ONLINE VOTING SYSTEM</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -64,8 +64,8 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 			<header>
 				<h3>LNMIIT ONLINE VOTING SYSTEM</h3>
 			</header>
-			<h1>Error - Invalid Username and Password </h1>
-			<input type="submit" class="buttons" id="myBtn" name="BACK TO HOME" value="BACK TO HOME" onclick="window.location = 'index.jsp';">
+			<h1>ERROR IN APPROVAL --> ALREADY APPROVED</h1>
+			<input type="submit" class="buttons" id="myBtn" name="BACK TO PREVIOUS PAGE" value="BACK TO PREVIOUS PAGE" onclick="window.history.back()">
 		</div>
 
 	</section>

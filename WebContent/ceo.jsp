@@ -33,11 +33,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 </head>
 <body class="index">
-<% ArrayList<String> EventsAdded = new ArrayList<String>();
-M_ElectionEvent EE = new M_ElectionEvent();
-EventsAdded = EE.getEE();
-session.setAttribute("EventsAdded",EventsAdded);
-	
+<%     
 		String sessionID = null;
 		int loginindex = 0;
 		Cookie[] cookies = request.getCookies();
@@ -65,6 +61,20 @@ session.setAttribute("EventsAdded",EventsAdded);
 			System.out.println("different session");
 
 		}
+		
+		ArrayList<String> EventsAdded = new ArrayList<String>();
+		M_ElectionEvent EE = new M_ElectionEvent();
+		EventsAdded = EE.getEE();
+		session.setAttribute("EventsAdded",EventsAdded);
+		ArrayList<String> aprollno = new ArrayList<String>();
+		M_CandidatureApplication CA = new M_CandidatureApplication();
+		aprollno =CA.getCA();
+		session.setAttribute("aprollno",aprollno);
+		ArrayList<String> rollno = new ArrayList<String>();
+		M_CandidatePortfolio CP = new M_CandidatePortfolio();
+		rollno =CP.getCP();
+		session.setAttribute("rollno",rollno);
+			
 	%>
 
 	<!-- Header -->
@@ -192,7 +202,7 @@ session.setAttribute("EventsAdded",EventsAdded);
 					<section>
 						<header>
 							<h3>
-								<a href="#">ABORT ELECTION EVENT</a>
+								<a href="abort.jsp">ABORT ELECTION EVENT</a>
 							</h3>
 						</header>
 						<p></p>
@@ -204,7 +214,7 @@ session.setAttribute("EventsAdded",EventsAdded);
 					<section>
 						<header>
 							<h3>
-								<a href="#">VIEW CANDIDATURE APPLICATION</a>
+								<a href="view_applications.jsp">VIEW CANDIDATURE APPLICATIONS</a>
 							</h3>
 						</header>
 						<p></p>
@@ -216,7 +226,7 @@ session.setAttribute("EventsAdded",EventsAdded);
 					<section>
 						<header>
 							<h3>
-								<a href="#">VIEW CANDIDATE PORTFOLIO</a>
+								<a href="view_candidates.jsp">VIEW CANDIDATE PORTFOLIOS</a>
 							</h3>
 						</header>
 						<p></p>
@@ -236,25 +246,6 @@ session.setAttribute("EventsAdded",EventsAdded);
 
 	</article>
 
-	<!-- CTA -->
-	<section id="cta">
-
-		<header>
-			<h2>
-				Ready to do <strong>something</strong>?
-			</h2>
-			<p>Proin a ullamcorper elit, et sagittis turpis integer ut
-				fermentum.</p>
-		</header>
-		<footer>
-			<ul class="buttons">
-				<li><a href="#" class="button special">Take My Money</a></li>
-				<li><a href="#" class="button">LOL Wut</a></li>
-			</ul>
-		</footer>
-
-	</section>
-
 	<!-- Footer -->
 	<footer id="footer">
 
@@ -272,8 +263,7 @@ session.setAttribute("EventsAdded",EventsAdded);
 		</ul>
 
 		<ul class="copyright">
-			<li>&copy; Untitled</li>
-			<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			<li>&copy; SEPM-Group-26</li>
 		</ul>
 
 	</footer>

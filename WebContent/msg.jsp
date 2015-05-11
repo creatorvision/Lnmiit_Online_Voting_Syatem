@@ -1,4 +1,4 @@
-<%@page import="jsp.*"%>
+<%@page import="jsp.*,java.util.*"%>
 <%@ include file="noCache.jsp"%>
 <!DOCTYPE HTML>
 <!--
@@ -34,6 +34,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 </head>
 <body class="index">
 	<%
+	
 		String sessionID = null;
 		int loginindex = 0;
 		Cookie[] cookies = request.getCookies();
@@ -61,6 +62,21 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 			System.out.println("different session");
 
 		}
+		ArrayList<String> EventsAdded = new ArrayList<String>();			
+		M_ElectionEvent EE = new M_ElectionEvent();		
+		EventsAdded = EE.getEE();		
+		session.setAttribute("EventsAdded",EventsAdded);
+		ArrayList<String> rollno = new ArrayList<String>();
+		M_CandidatePortfolio CP = new M_CandidatePortfolio();
+		rollno =CP.getCP();
+		session.setAttribute("rollno",rollno);
+		
+		if(session.getAttribute("fname")== "update_portfolio")
+		{%>
+			<script>
+				alert("Successfully Updated");
+			</script>
+		<%}
 	%>
 
 	<!-- Header -->
@@ -93,7 +109,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 						</li>
 						<li><a href="#" class="button special">Sign Up</a></li>-->
 				<li><a href="">Election Rules</a></li>
-				<li><a href="">Help Page</a></li>
+				<li><a href="Manual_for_LNMIIT_Online_Voting_System.html">Help Page</a></li>
 				<li><a href="">Contact Us</a></li>
 				<li><a href="logout.jsp" class="button special">LOGOUT</a></li>
 			</ul>
@@ -164,7 +180,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">DELETE YOUR APPLICATION</a>
+								<a href="delete_ap.jsp">DELETE YOUR APPLICATION</a>
 							</h3>
 						</header>
 						<p></p>
@@ -178,7 +194,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">VIEW CANDIDATE PORTFOLIOS</a>
+								<a href="view_candidates.jsp">VIEW CANDIDATE PORTFOLIOS</a>
 							</h3>
 						</header>
 						<p></p>
@@ -190,7 +206,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">DELETE YOUR CANDIDATURE</a>
+								<a href="delete_ap.jsp">DELETE YOUR CANDIDATURE</a>
 							</h3>
 						</header>
 						<p></p>
@@ -199,12 +215,12 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 				</div>
 			</div>
 			<div class="row">
-				<div class="6u 12u(narrower)">
+				<div class="6u 12u(narrower)" align="center">
 
 					<section>
 						<header>
 							<h3>
-								<a href="#">DELETE PORTFOLIO</a>
+								<a href="update_portfolio.jsp">UPDATE PORTFOLIO</a>
 							</h3>
 						</header>
 						<p></p>
@@ -216,18 +232,19 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 					<section>
 						<header>
 							<h3>
-								<a href="#">UPDATE PORTFOLIO</a>
+								<a href="#">RESULTS</a>
 							</h3>
 						</header>
 						<p></p>
 					</section>
 
 				</div>
+				
 			</div>
 
 			<footer class="major">
 				<ul class="buttons">
-					<li><a href="#" class="button">VOTING</a></li>
+					<li><a href="Voting_terminal_login.jsp" class="button">VOTING</a></li>
 				</ul>
 			</footer>
 
@@ -235,25 +252,6 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 		<!--END OF CEO OPERATIONS -->
 
 	</article>
-
-	<!-- CTA -->
-	<section id="cta">
-
-		<header>
-			<h2>
-				Ready to do <strong>something</strong>?
-			</h2>
-			<p>Proin a ullamcorper elit, et sagittis turpis integer ut
-				fermentum.</p>
-		</header>
-		<footer>
-			<ul class="buttons">
-				<li><a href="#" class="button special">Take My Money</a></li>
-				<li><a href="#" class="button">LOL Wut</a></li>
-			</ul>
-		</footer>
-
-	</section>
 
 	<!-- Footer -->
 	<footer id="footer">

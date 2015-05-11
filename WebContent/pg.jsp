@@ -2,7 +2,7 @@
 <%@ include file="noCache.jsp"%>
 <!--
 AUTHOR                   : LNMIIT_ONLINE_VOTING_SYSTEM_TEAM
-LAST MODIFIED DATE       : 17-APRIL-2015
+LAST MODIFIED DATE       : 7-MAY-2015
 -->
 <%@page import="jsp.*,java.sql.*,java.util.*,java.text.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,7 +11,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Delete Election Event- LNMIIT_ONLINE_VOTING_PORTAL</title>
+<title>Post Grad.-VOTING - LNMIIT_ONLINE_VOTING_PORTAL</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -52,33 +52,16 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 	background-size: 75em, 60em, auto, cover;
 }
 </style>
-<!-- <script type="text/javascript">
-	function checkForm(form) {
-		// regular expression to match required date format
-		re = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+<script type="text/javascript">
 
-		if (form.date.value != '' && !form.date.value.match(re)) {
-			alert("Invalid date format: " + form.date.value);
-			form.date.focus();
-			return false;
-		}
-
-		// regular expression to match required time format
-		re = /^\d{1,2}:\d{1,2}:\d{1,2}$/;
-
-		if (form.starttime.value != '' && !form.starttime.value.match(re)) {
-			alert("Invalid time format: " + form.starttime.value);
-			form.starttime.focus();
-			return false;
-		}
-
-		alert("All input fields have been validated!");
-		return true;
+	function checkForm() {
+		
+		//VALIDATE
 	}
 </script>
-<script>
+<!-- <script>
 	$(function() {
-		$('#datepicker').datepicker(
+		$('#date').datepicker(
 				{
 					onSelect : function(dateText, inst) {
 						//Get today's date at midnight
@@ -90,29 +73,18 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 						if (selDate < today) {
 							//If the selected date was before today, continue to show the datepicker
-							$('#datepicker').val('');
+							$('#date').val('');
 							$(inst).datepicker('show');
 						}
 					}
 				});
 	});
-</script>
- -->
- <script type="text/javascript">
- function checkForm() {
-		
-		if(document.form.ename.value == "0")
-			{
-				alert (" please Choose an Event ");
-				document.form.ename.focus();
-				return false;
-			}
- }
- </script>
+</script> -->
+
 </head>
 <body class="contact">
 	<%
-		session.setAttribute("fname", "delete_ee");
+		
 	String sessionID = null;
 	int loginindex = 0;
 	Cookie[] cookies = request.getCookies();
@@ -141,7 +113,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 	}
 
-
+	session.setAttribute("fname", "PG");
 
 	%>
 
@@ -167,7 +139,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 		<header class="container">
 			<!-- <span class="icon fa-envelope"></span>-->
-			<h2 align="center">DELETE ELECTION EVENT</h2>
+			<h2 align="center">VOTING FOR POST GRADUATION STUDENTS</h2>
 			<p></p>
 		</header>
 
@@ -176,19 +148,57 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 			<!-- Content -->
 			<div class="content">
-				<form  name="form" action="C_ceo.jsp" method="post">
-					<div class="row 50%">
+				<form name="form" action="C_candidate.jsp" method="post">
+					<div class="row">
 						<!--class= 6u 12u(mobile) -->
 						<div class="12u">
-							<select id="ename" name="electionevent">
-								<option value="0">Choose An Event</option>
+							<b>PREFERENCE 1 :</b><select id="electionevent" name="pref1">
+								<option value="0">Choose a unique value in all three preferences</option>
 
-								<%!ArrayList<String> EventsAdded = new ArrayList<String>();%>
+								<%!ArrayList<String> EventsAdded1 = new ArrayList<String>();%>
 								<%
 									try {
-										EventsAdded = (ArrayList<String>) (session.getAttribute("EventsAdded"));
-										for (int i = 0; i < EventsAdded.size(); i++) {
-											String val = EventsAdded.get(i);
+										EventsAdded1 = (ArrayList<String>) (session.getAttribute("EventsAdded"));
+										for (int i = 0; i < EventsAdded1.size(); i++) {
+											String val = EventsAdded1.get(i);
+								%>
+								<option value="<%=val%>"><%=val%></option>
+								<%
+									}
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								%>
+							</select>
+							<br/>
+							<b>PREFERENCE 2 :</b><select id="electionevent" name="pref2">
+								<option value="0">Choose a unique value in all three preferences</option>
+
+								<%!ArrayList<String> EventsAdded2 = new ArrayList<String>();%>
+								<%
+									try {
+										EventsAdded2 = (ArrayList<String>) (session.getAttribute("EventsAdded"));
+										for (int i = 0; i < EventsAdded2.size(); i++) {
+											String val = EventsAdded2.get(i);
+								%>
+								<option value="<%=val%>"><%=val%></option>
+								<%
+									}
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								%>
+							</select>
+							<br/>
+							<b>PREFERENCE 3 :</b><select id="electionevent" name="pref3">
+								<option value="0">Choose a unique value in all three preferences</option>
+
+								<%!ArrayList<String> EventsAdded3 = new ArrayList<String>();%>
+								<%
+									try {
+										EventsAdded3 = (ArrayList<String>) (session.getAttribute("EventsAdded"));
+										for (int i = 0; i < EventsAdded3.size(); i++) {
+											String val = EventsAdded3.get(i);
 								%>
 								<option value="<%=val%>"><%=val%></option>
 								<%
@@ -200,48 +210,16 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 							</select>
 						</div>
 					</div>
-					<!-- <div class="row 50%">
-						<div class="12u">
-							<input type="date" id="datepicker" name="date" value="Date" />
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<input type="time" name="starttime" placeholder="Start Time" />
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<input type="time" name="endtime" placeholder="End Time" />
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<p>Positions:</p>
-							<input type="checkbox" name="list" value="P">President<br>
-							<input type="checkbox" name="list" value="VP">Vice
-							President<br> <input type="checkbox" name="list" value="GSS">G.Sec
-							Sport<br> <input type="checkbox" name="list" value="GSC">G.sec
-							Cultural<br> <input type="checkbox" name="list" value="GSST">G.Sec
-							Science Tech.<br> <input type="checkbox" name="list"
-								value="UG_Senate_Fourth_Year">Senate Fourth Year UG<br>
-							<input type="checkbox" name="list" value="UG_Senate_Third_Year">Senate
-							Third Year UG<br> <input type="checkbox" name="list"
-								value="UG_Senate_Second_Year">Senate Second Year UG<br>
-							<input type="checkbox" name="list" value="UG_Senate_First_Year">Senate
-							First Year UG<br> <input type="checkbox" name="list"
-								value="PG">Post Graduate<br>
-						</div>
-					</div> -->
 					<div class="row">
 						<div class="12u">
 							<ul class="buttons">
 								<li><input type="submit" class="special"
-									value="Delete" /></li>
+									value="Submit" onclick="checkForm()"/></li>
 							</ul>
 						</div>
 					</div>
 				</form>
+				
 			</div>
 
 		</section>

@@ -11,7 +11,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Delete Election Event- LNMIIT_ONLINE_VOTING_PORTAL</title>
+<title>Abort Election Event- LNMIIT_ONLINE_VOTING_PORTAL</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -167,7 +167,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 		<header class="container">
 			<!-- <span class="icon fa-envelope"></span>-->
-			<h2 align="center">DELETE ELECTION EVENT</h2>
+			<h2 align="center">ABORT ELECTION EVENT</h2>
 			<p></p>
 		</header>
 
@@ -237,7 +237,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 						<div class="12u">
 							<ul class="buttons">
 								<li><input type="submit" class="special"
-									value="Delete" /></li>
+									value="Abort" /></li>
 							</ul>
 						</div>
 					</div>

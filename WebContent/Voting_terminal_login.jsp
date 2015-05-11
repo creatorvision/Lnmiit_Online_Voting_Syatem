@@ -1,4 +1,6 @@
 <%@ include file="noCache.jsp"%>
+<%@page import="jsp.*,java.util.*"%>
+
 <!DOCTYPE HTML>
 <!--
 
@@ -8,7 +10,7 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 -->
 <html>
 <head>
-<title>LNMIIT ONLINE VOTING SYSTEM</title>
+<title>Voting Terminal | LNMIIT ONLINE VOTING SYSTEM</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -30,10 +32,63 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 
+<script>
+	function validLogin(){
+		if (document.form.username.value == ""){
+			alert ( "Please enter Login Name Given at booth" );
+			document.form.username.focus();
+			return false;
+		}
+		if (document.form.password.value == ""){
+			alert ( "Please enter password Given at booth" );
+			document.form.password.focus();
+			return false;
+		}
+	}
+</script>
 
 </head>
 <body class="index">
+<%
+		
+		String sessionID = null;
+		int loginindex = 0;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cooki : cookies) {
+				if (cooki.getName().equals("JSESSIONID")) {
+					sessionID = cooki.getValue();
+					System.out.println("JSESSIONID=" + sessionID);
+					break;
+				}
 
+			}
+			for (Cookie cooki : cookies) {
+				if (cooki.getName().equals("loginindex")) {
+					loginindex = Integer.parseInt(cooki.getValue());
+					System.out.println("loginindex=" + loginindex);
+					break;
+				}
+
+			}
+		}
+
+		if (!Session.isSameSession(sessionID, loginindex)) {
+			response.sendRedirect("index.jsp");
+			System.out.println("different session");
+
+		}
+		
+		//M_CandidatureApplication CA = new M_CandidatureApplication();
+		//int batch = CA.getBatch((String) (session.getAttribute("user")));
+		session.setAttribute("fname", "voting_terminal");
+		
+		String rollno = (String)session.getAttribute("user");
+		System.out.println(rollno);
+		
+		
+		
+	%>
 	<!-- Header -->
 	<header id="header" class="alt">
 		<h1 id="logo">
@@ -52,25 +107,38 @@ DATE OF LAST UPDATE         : 17 APRIL 2015
 
 	<!-- Banner -->
 	<section id="banner">
-
-		<!--
-					".inner" is set up as an inline-block so it automatically expands
-					in both directions to fit whatever's inside it. This means it won't
-					automatically wrap lines, so be sure to use line breaks where
-					appropriate (<br />).
-				-->
 		<div class="inner">
 
 			<header>
-				<h3>LNMIIT ONLINE VOTING SYSTEM</h3>
+				<h3>VOTING TERMINAL</h3>
 			</header>
-			<h1>Error - Invalid Username and Password </h1>
-			<input type="submit" class="buttons" id="myBtn" name="BACK TO HOME" value="BACK TO HOME" onclick="window.location = 'index.jsp';">
+			<form name="form" action="voting.jsp" method="post">
+
+				<input type="text" placeholder="Username" name="username" size="20"
+					value=""><br> <input type="password"
+					placeholder="Password" name="password" size="20" value=""><br>
+				<input type="submit" class="buttons" name="LOG IN" value="LOG IN"
+					id="login_sub" onclick="validLogin()">
+
+			</form>
+
 		</div>
 
 	</section>
 	<!--End of banner-->
+	<section>
+		<div class="content">
+			<div align="center">
+				<h5><b>NOTE:</b></h5>
+					<ul>
+						<li><b>If you logIn successfully, It will be considered that you are on the Voting Terminal .</b></li>
+						<li><b>You will be allowed to vote only once.</b></li>
+					</ul>
+			</div>
+		</div>
+	</section>
 	
+	<!-- Footer -->
 	<footer id="footer">
 
 		<ul class="icons">

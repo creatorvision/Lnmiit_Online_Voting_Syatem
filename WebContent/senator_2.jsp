@@ -2,13 +2,16 @@
 <%@ include file="noCache.jsp"%>
 <!--
 AUTHOR                   : LNMIIT_ONLINE_VOTING_SYSTEM_TEAM
-LAST MODIFIED DATE       : 17-APRIL-2015
+LAST MODIFIED DATE       : 7-MAY-2015
 -->
+<%@page import="jsp.*,java.sql.*,java.util.*,java.text.*"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Create Election Event- LNMIIT_ONLINE_VOTING_PORTAL</title>
+<title>Senate Second Year-VOTING - LNMIIT_ONLINE_VOTING_PORTAL</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -50,82 +53,21 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 }
 </style>
 <script type="text/javascript">
-	
-	 function checkForm() {
-		 
-		 if(document.form.electionevent.value == "")
-			{
-				alert (" please Enter Event Name ");
-				document.form.electionevent.focus(); 
-			}
-			if(document.form.date.value == "")
-			{
-				/* var form = document.getElementById("form_Submit");
-				form.onsubmit = function() { */
-					alert (" please Enter Date ");
-					document.form.date.focus();
-				  return false;
-				/* }
-				return false; */
-			}
-			if(document.form.starttime.value == "")
-			{
-				/* var form = document.getElementById("form_Submit");
-				form.onsubmit = function() { */
-					alert (" please Enter Start Time ");
-					document.form.starttime.focus();
-				  return false;
-				/* }
-				return false; */
-			}
-			if(document.form.endtime.value == "")
-			{
-				/* var form = document.getElementById("form_Submit");
-				form.onsubmit = function() { */
-					alert (" please Enter End Time ");
-					document.form.endtime.focus();
-					return false;
-				/* }
-				return false; */
-			} 
 
-		// regular expression to match required date format
-		re = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-
-		if (document.form.date.value != '' && !document.form.date.value.match(re)) {
-			alert("Invalid date format: " + document.form.date.value);
-			document.form.date.focus();
-			return false;
-		}
-
-		// regular expression to match required time format
-		re = /^\d{1,2}:\d{1,2}:\d{1,2}$/;
-		if (document.form.starttime.value != '' && !document.form.starttime.value.match(re)) {
-			alert("Invalid time format: " + document.form.starttime.value);
-			document.form.starttime.focus();
-			return false;
-		}
-		// Start Time <  End Time  validation :
-		if((document.form.starttime.value > document.form.endtime.value) || (document.form.endtime.value < document.form.starttime.value))
-			{
-				alert("Invalid input");
-				document.form.starttime.focus();
-				document.form.endtime.focus();
-				return false;
-			}
+	function checkForm() {
 		
-		alert("All input fields have been validated!");
-		return true;
+		//VALIDATE
 	}
 </script>
-<script>
+<!-- <script>
 	$(function() {
 		$('#date').datepicker(
 				{
 					onSelect : function(dateText, inst) {
 						//Get today's date at midnight
 						var today = new Date();
-						today = Date.parse(today.getMonth() + 1 + '/'+ today.getDate() + '/' + today.getFullYear());
+						today = Date.parse(today.getMonth() + 1 + '/'
+								+ today.getDate() + '/' + today.getFullYear());
 						//Get the selected date (also at midnight)
 						var selDate = Date.parse(dateText);
 
@@ -137,13 +79,12 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 					}
 				});
 	});
-</script>
+</script> -->
 
 </head>
 <body class="contact">
 	<%
 		
-	session.setAttribute("fname", "create_ee");
 	String sessionID = null;
 	int loginindex = 0;
 	Cookie[] cookies = request.getCookies();
@@ -172,7 +113,8 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 	}
 
-	
+	session.setAttribute("fname", "senator2");
+
 	%>
 
 	<!-- Header -->
@@ -197,7 +139,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 		<header class="container">
 			<!-- <span class="icon fa-envelope"></span>-->
-			<h2 align="center">CREATE ELECTION EVENT</h2>
+			<h2 align="center">VOTING FOR SENATE SECOND YEAR</h2>
 			<p></p>
 		</header>
 
@@ -206,56 +148,78 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 			<!-- Content -->
 			<div class="content">
-				<form name="form" action="C_ceo.jsp" method="post">
-					<div class="row 50%">
+				<form name="form" action="C_candidate.jsp" method="post">
+					<div class="row">
 						<!--class= 6u 12u(mobile) -->
 						<div class="12u">
-							<input type="text" id="electionevent" name="electionevent" placeholder="Event Name" value=""/>
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<input type="date" id="date" name="date" value="" placeholder="Date" />
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<input type="time" id="starttime" name="starttime"
-								placeholder="Start Time 24 hr format HH:MM:SS" value=""/>
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<input type="time" id="endtime" name="endtime"
-								placeholder="End Time 24 hr format HH:MM:SS" value=""/>
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<p>Positions:</p>
-							<input type="checkbox" name="list" value="P">President<br>
-							<input type="checkbox" name="list" value="VP">Vice
-							President<br> <input type="checkbox" name="list" value="GSS">G.Sec
-							Sports<br> <input type="checkbox" name="list" value="GSC">G.sec
-							Cultural<br> <input type="checkbox" name="list" value="GSST">G.Sec
-							Science and Tech.<br> <input type="checkbox" name="list"
-								value="UG_Senate_Fourth_Year">Senate Fourth Year UG<br>
-							<input type="checkbox" name="list" value="UG_Senate_Third_Year">Senate
-							Third Year UG<br> <input type="checkbox" name="list"
-								value="UG_Senate_Second_Year">Senate Second Year UG<br>
-							<input type="checkbox" name="list" value="UG_Senate_First_Year">Senate
-							First Year UG<br> <input type="checkbox" name="list"
-								value="PG">Post Graduate<br>
+							<b>PREFERENCE 1 :</b><select id="electionevent" name="pref1">
+								<option value="0">Choose a unique value in all three preferences</option>
+
+								<%!ArrayList<String> EventsAdded1 = new ArrayList<String>();%>
+								<%
+									try {
+										EventsAdded1 = (ArrayList<String>) (session.getAttribute("EventsAdded"));
+										for (int i = 0; i < EventsAdded1.size(); i++) {
+											String val = EventsAdded1.get(i);
+								%>
+								<option value="<%=val%>"><%=val%></option>
+								<%
+									}
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								%>
+							</select>
+							<br/>
+							<b>PREFERENCE 2 :</b><select id="electionevent" name="pref2">
+								<option value="0">Choose a unique value in all three preferences</option>
+
+								<%!ArrayList<String> EventsAdded2 = new ArrayList<String>();%>
+								<%
+									try {
+										EventsAdded2 = (ArrayList<String>) (session.getAttribute("EventsAdded"));
+										for (int i = 0; i < EventsAdded2.size(); i++) {
+											String val = EventsAdded2.get(i);
+								%>
+								<option value="<%=val%>"><%=val%></option>
+								<%
+									}
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								%>
+							</select>
+							<br/>
+							<b>PREFERENCE 3 :</b><select id="electionevent" name="pref3">
+								<option value="0">Choose a unique value in all three preferences</option>
+
+								<%!ArrayList<String> EventsAdded3 = new ArrayList<String>();%>
+								<%
+									try {
+										EventsAdded3 = (ArrayList<String>) (session.getAttribute("EventsAdded"));
+										for (int i = 0; i < EventsAdded3.size(); i++) {
+											String val = EventsAdded3.get(i);
+								%>
+								<option value="<%=val%>"><%=val%></option>
+								<%
+									}
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								%>
+							</select>
 						</div>
 					</div>
 					<div class="row">
 						<div class="12u">
 							<ul class="buttons">
-								<li><input id="form_Submit" type="submit" class="special" value="Create" onclick="checkForm()"/></li>
+								<li><input type="submit" class="special"
+									value="Submit" onclick="checkForm()"/></li>
 							</ul>
 						</div>
 					</div>
 				</form>
+				
 			</div>
 
 		</section>

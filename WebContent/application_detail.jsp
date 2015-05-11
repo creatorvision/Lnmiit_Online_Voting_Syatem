@@ -8,7 +8,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Apply for Candidature- LNMIIT_ONLINE_VOTING_PORTAL</title>
+<title>Applications_details-LNMIIT_ONLINE_VOTING_PORTAL</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -50,62 +50,11 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 }
 </style>
 <script type="text/javascript">
-	 function checkForm() {
-		 
-		 if(document.form.name.value == "")
-			 {
-			 	alert("Please Enter a valid name");
-			 	document.form.name.focus();
-				return false;	
-			 }
-		 if(document.form.email.value == "")
-		 {
-		 	alert("Please Enter Email ID");
-		 	document.form.email.focus();
-			return false;	
-		 }
-		
-		 if(document.form.electionevent.value == "0")
-			{
-				alert (" Please Choose an Event ");
-				document.form.electionevent.focus();
-				return false;
-			}
-		//check for CGPA
-		double val = document.getElementById("cgpa");
-		if (val > 10 || val < 0) {
-			alert("Invalid Input");
-		}
-		if(document.form.cgpa.value="")
-			{
-				alert(" Please Choose an Event ");
-				document.form.cgpa.focus();
-				return false;
-			}
+	 function FormValidate() 
+	{
+		// Validation of the form
 	}
 </script>
-<!--<script>
-	$(function() {
-		$('#datepicker').datepicker(
-				{
-					onSelect : function(dateText, inst) {
-						//Get today's date at midnight
-						var today = new Date();
-						today = Date.parse(today.getMonth() + 1 + '/'
-								+ today.getDate() + '/' + today.getFullYear());
-						//Get the selected date (also at midnight)
-						var selDate = Date.parse(dateText);
-
-						if (selDate < today) {
-							//If the selected date was before today, continue to show the datepicker
-							$('#datepicker').val('');
-							$(inst).datepicker('show');
-						}
-					}
-				});
-	});
-</script>
- -->
 </head>
 <body class="contact">
 	<%
@@ -137,9 +86,15 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 			System.out.println("different session");
 
 		}
+		
 		M_CandidatureApplication CA = new M_CandidatureApplication();
-		int batch = CA.getBatch((String) (session.getAttribute("user")));
-		session.setAttribute("fname", "apply");
+		//int batch = CA.getBatch((String) (session.getAttribute("user")));
+		session.setAttribute("fname", "application_detail");
+		
+		
+		
+		
+		
 	%>
 
 	<!-- Header -->
@@ -164,7 +119,7 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 		<header class="container">
 			<!-- <span class="icon fa-envelope"></span>-->
-			<h2 align="center">APPLY FOR CANDIDATURE</h2>
+			<h2 align="center">APPLICATION DETAILS</h2>
 			<p></p>
 		</header>
 
@@ -173,111 +128,77 @@ LAST MODIFIED DATE       : 17-APRIL-2015
 
 			<!-- Content -->
 			<div class="content">
-				<form name="form" action="C_msg.jsp" method="post">
+			
+			<%
+			ArrayList<String> applicantdetails = new ArrayList<String>();
+			String rollno = request.getParameter("rollno");
+			session.setAttribute("rollno", rollno);
+			applicantdetails = CA.getAD(rollno);
+				
+			
+			    
+				
+				String electionevent = applicantdetails.get(0);
+				String position= applicantdetails.get(1);
+				String name=applicantdetails.get(2);
+				String email=applicantdetails.get(3);
+				String phoneno=applicantdetails.get(4);
+				String gender=applicantdetails.get(5);
+				
+				
+				
+			%>
+			
+				<form action="C_msg.jsp" method="post">
 					<div class="row 50%">
 						<!--class= 6u 12u(mobile) -->
 						<div class="12u">
-							<input type="text" id="name" name="name" placeholder="NAME" />
+							<b>NAME:</b><input type="text" name="name"  readonly value="<%=name%>"/>
 						</div>
 					</div>
-					<!-- <div class="row 50%">
-						<div class="12u">
-							<input type="text"  name="Roll_no" value="Roll No."
-								placeholder="Roll No." />
-						</div>
-					</div> -->
 					<div class="row 50%">
 						<div class="12u">
-							<input type="email" id="email" name="email" placeholder="Email : format --> abc@xyz.com" />
+							<b>EMAIL:</b><input type="email" name="email" readonly value="<%=email%>" />
+						</div>
+					</div>
+					<div class="row 50%">
+						<div class="12u">
+							<b>Election Event:</b><input type="text" name="election_event" readonly value="<%=electionevent%>" />							
+						</div>
+					</div>
+					<div class="row 50%">
+						<div class="12u">
+							<b>Gender:</b><input type="text" name="gender" readonly value="<%=gender%>" maxlength=1 />
+						</div>
+					</div>
+
+					<%-- <div class="row 50%">
+						<div class="12u">
+							<input type="text" id="cgpa" name="cgpa" readonly value="<%=cgpa%>" />
+						</div>
+					</div> --%>
+					<div class="row 50%">
+						<div class="12u">
+							<b>Phone No:</b><input type="text" name="phoneno" readonly value="<%=phoneno%>" />
+						</div>
+					</div>
+					<div class="row 50%">
+						<div class="12u">
+							<b>Position:</b><input type="text" name="position" readonly value="<%=position%>" />
 						</div>
 					</div>
 					<div class="row">
 						<div class="12u">
-							Choose An Event: <select  id="electionevent" name="electionevent">
-									<option value="0">Choose An Event</option>
-	
-									<%!ArrayList<String> EventsAdded = new ArrayList<String>();%>
-									<%
-										try {
-											EventsAdded = (ArrayList<String>) (session.getAttribute("EventsAdded"));
-											for (int i = 0; i < EventsAdded.size(); i++) {
-												String val = EventsAdded.get(i);
-									%>
-									<option value="<%=val%>"><%=val%></option>
-									<%
-										}
-										} catch (Exception e) {
-											e.printStackTrace();
-										}
-									%>
-								</select>
+							<div class="buttons">
 								
-								  Gender: 
-								<select id="gender" name="gender">
-									<option value="M">Male</option>
-									<option value="F">Female</option>
-								</select>
-						</div>
-					</div>
-
-					<div class="row 50%">
-						<div class="12u">
-							<input type="text" id="cgpa" name="cgpa" placeholder="CGPA" />
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							<input type="text" id="phoneno" name="phoneno" placeholder="Phone No" />
-						</div>
-					</div>
-					<div class="row 50%">
-						<div class="12u">
-							Position Applying For: <select id="position" name="position">
-								<option value="P">President</option>
-								<option value="VP">Vice-President</option>
-								<option value="GSS">G.Sec. Sports</option>
-								<option value="GSC">G.Sec. Cultural</option>
-								<option value="GSST">G.Sec. Science and Tech.</option>
-								<%
-									if (batch == 1) {
-								%>
-								<option value="UG_Senate_First_Year">Senate First Year
-									UG</option>
-								<%
-									} else if (batch == 2) {
-								%><option value="UG_Senate_Second_Year">Senate Second
-									Year UG</option>
-								<%
-									} else if (batch == 3) {
-								%><option value="UG_Senate_Third_Year">Senate Third
-									Year UG</option>
-								<%
-									} else if (batch == 4) {
-								%><option value="UG_Senate_Fourth_Year">Senate Fourth
-									Year UG</option>
-								<%
-									} else if (batch == 5) {
-								%>
-
-								<option value="PG">Post Graduate</option>
-								<%
-									} else
-										System.out.println("Error options");
-								%>
-
-
-
-							</select>
-						</div>
-					</div>
-					<div class="row">
-						<div class="12u">
-							<ul class="buttons">
-								<li><input type="submit" class="special" value="Apply" onclick="checkForm()"/></li>
-							</ul>
+								<div><input type="submit" class="special" value="Approve" /></div><br/>																																																																																																																																																																																					
+								<div><input type="button" class="special" value="Back" onclick="window.location.href = 'view_applications.jsp'"/></div>
+								
+							</div>
 						</div>
 					</div>
 				</form>
+				
 			</div>
 
 		</section>
